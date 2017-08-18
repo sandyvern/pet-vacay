@@ -1,1 +1,11 @@
-<%= link_to('Sign in', new_user_session_path) %> | <%= link_to('Sign out',  destroy_user_session_path, method: :delete) %>
+<nav class="navbar navbar-default">
+  <div class="container">
+    <%= link_to 'Pet Vacay', root_path, class: 'navbar-brand' %>
+    
+    <ul class="nav navbar-nav navbar-right">
+      <li><%= link_to 'Sign in', new_user_session_path %></li>
+      <li><%= link_to 'Sign out',  destroy_user_session_path, method: :delete %></li>
+    </ul>
+  </div>
+</nav>
+

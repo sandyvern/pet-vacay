@@ -15,6 +15,10 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-body {
-    text-align: center;
+.navbar {
+    background-color: #e3f2fd;
+}
+
+.jumbotron {
+  text-align: center;
 }
