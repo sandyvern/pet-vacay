@@ -9,37 +9,54 @@
  * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
- *
+ * 
  */
+ 
+ /// COLORS ///
+ // Saddle Brown - #A96517
+ // Sandy Brown - #E5A14E
+ // Dark Slate - #283026
+ // Gainsboro - #E7E3DC
+ // Peru - #A87C49
  
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "font-awesome";
 
 .main-nav {
-    background-color: #e3f2fd;
-    border-bottom: solid 4px #031d30;
+    background-color: #E5A14E;
+    border-bottom: solid 4px #283026;
 }
 
 .jumbotron {
-  background-color: #e3f2fd;
+  position: relative;
+  background: #000 url("dogcatcollage.jpg") center center;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  overflow: hidden;
   text-align: center;
+  margin-bottom: 190px;
 }
 
-.sticky-bottom {
-  background-color: #020f18;
+.welcome-msg {
+  width: 100%;
+  padding: 20px;
+  background: hsla(0,0%,0%,.4);
+  color: white;
 }
+
 
 //// FOOTER ////
 
 #myFooter {
-    background-color: #3c3d41;
+    background-color: #283026;
     color: white;
     padding-top: 30px;
 }
 
 #myFooter .footer-copyright {
-    background-color: #333333;
+    background-color: #A87C49;
     padding-top: 3px;
     padding-bottom: 3px;
     text-align: center;
@@ -120,7 +137,7 @@
 
 #myFooter .btn {
     color: white;
-    background-color: #d84b6b;
+    background-color: #E5A14E;
     border-radius: 20px;
     border: none;
     width: 150px;
