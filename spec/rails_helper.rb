@@ -10,8 +10,15 @@ ENV['RAILS_ENV'] ||= 'test'
 	Capybara.javascript_driver = :webkit
 
 	ActiveRecord::Migration.maintain_test_schema!
+	
+	include ActionDispatch::TestProcess
 
 	RSpec.configure do |config|
+		config.include Warden::Test::Helpers
+		config.before :suite do
+		  Warden.test_mode!
+		end
+		
 		config.fixture_path = "#{::Rails.root}/spec/fixtures"
 
 		config.use_transactional_fixtures = true
