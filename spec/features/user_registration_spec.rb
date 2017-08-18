@@ -5,7 +5,7 @@ feature "user registers for site" do
   scenario "user registers" do
     visit root_path
     expect(page).to have_text("Welcome Travelling Pet Lovers!")
-    click_link "Become A user"
+    click_link "Become A Member"
     fill_in_registration_fields
     expect(page).to have_content("Welcome! You have signed up successfully.")
   end
@@ -16,6 +16,6 @@ feature "user registers for site" do
     # fill_in "user[last_name]", with: Faker::Name.last_name 
     fill_in "user[email]", with: Faker::Internet.email
     fill_in "user[password]", with: Devise.friendly_token.first(8)
-    click_button "Sign up"
+    click_button "Sign Up"
   end
 end
