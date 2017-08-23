@@ -31,8 +31,8 @@
           
           <div class="select col-md-3">
             <%= f.label :state %>
-            <%= select_tag :state, options_for_select(us_states) %>
-            <%#= f.select(:state, options_for_select(us_states, "CA")) %>
+            <%#= select_tag :state, options_for_select(us_states) %>
+            <%= f.select(:state, options_for_select(us_states, "CA")) %>
           </div>
             
           <div class="form-group  col-md-3">
@@ -49,7 +49,7 @@
         <!--</div>-->
         
         <div class="actions">
-          <%= f.submit "Submit", class: 'btn btn-warning' %>
+          <%= f.submit "Create Profile", class: 'btn btn-warning' %>
         </div>
       
       <% end %>

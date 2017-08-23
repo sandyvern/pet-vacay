@@ -9,11 +9,11 @@ feature "user profiles" do
 
   scenario "user creates profile" do   
     visit new_user_profile_path(user)
-    expect(page).to have_content("Create a new Profile")
+    expect(page).to have_content("Create a Member Profile")
     fill_in "profile[bio]", with: Faker::Lorem.paragraph(2)
     fill_in "profile[city]", with: "Stamford"
     select "Connecticut"
-    # fill_in "profile[state]", with: "CT"
+    # fill_in "profile[state]", with: Faker::Address.state
     fill_in "profile[zipcode]", with: "06902"
     select "dog"
     select "cat" 
@@ -29,12 +29,12 @@ feature "user profiles" do
 
   scenario "user sees profile error message if no bio" do
     visit new_user_profile_path(user)
-    expect(page).to have_content("Create a new Profile")
+    expect(page).to have_content("Create a Member Profile")
 
     click_button "Create Profile"
 		
 		expect(Profile.count).to eq 0
-		expect(page).to have_content("Create a new Profile")
+		expect(page).to have_content("Create a Member Profile")
 		expect(page).to have_content("Bio can't be blank")
   end
 
