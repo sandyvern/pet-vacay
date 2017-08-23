@@ -1,36 +1,63 @@
-<h1>Create a new Profile</h1>
+<div class="panel panel-default">
+  <div class="panel-heading"><h1>Create a Member Profile</h1></div>
 
-<%= form_for [@user, @profile] do |f| %>
-
-  <% if @profile.errors.any? %>
-    <div id="error_explanation">
-      <h2>Oops! We couldn't create your profile.  Please see below.</h2>
-
-      <ul>
-      <% @profile.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+    <div class="panel-body">
+      <%= form_for [@user, @profile] do |f| %>
+      
+        <% if @profile.errors.any? %>
+          <div id="error_explanation">
+            <h2>Oops! We couldn't create your profile.  Please see below.</h2>
+      
+            <ul>
+            <% @profile.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
+        
+        <!--<div class="row">-->
+          <div class="form-group">
+            <%= f.label :bio %><br>
+            <%= f.text_area :bio, autofocus: true, class: 'form-control' %>
+          </div>
+        <!--</div>-->
+        
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <%= f.label :city %><br>
+            <%= f.text_field :city, class: 'form-control' %>
+          </div>
+          
+          <div class="select col-md-3">
+            <%= f.label :state %>
+            <%= select_tag :state, options_for_select(us_states) %>
+            <%#= f.select(:state, options_for_select(us_states, "CA")) %>
+          </div>
+            
+          <div class="form-group  col-md-3">
+            <%= f.label :zipcode %><br>
+            <%= f.text_field :zipcode, class: 'form-control' %>
+          </div>
+        </div>
+        
+        <!--<div class="row">-->
+          <div class="form-group select">
+            <%= f.label :pets %><br>
+            <%= f.select(:pets, Profile.pets_options ,{}, {multiple: true}) %><br>
+          </div>
+        <!--</div>-->
+        
+        <div class="actions">
+          <%= f.submit "Submit", class: 'btn btn-warning' %>
+        </div>
+      
       <% end %>
-      </ul>
     </div>
-  <% end %>
-
+    
+    <div class="panel-footer">
+      <%= link_to "Back", :back %>
+    </div>
   
-  <%= f.label :bio %><br>
-  <%= f.text_area :bio %><br>
-
-  <%= f.label :city %><br>
-  <%= f.text_field :city %><br>
-  
-  <%= f.label :state %><br>
-  <%#= select_tag :state, options_for_select(us_states) %>
-  <%= f.select(:state, options_for_select(us_states, "CA")) %>
-  
-  <%= f.label :zipcode %><br>
-  <%= f.text_field :zipcode %><br>
-
-  <%= f.label :pets %><br>
-  <%= f.select(:pets, Profile.pets_options ,{}, {multiple: true}) %><br>
-  
-  <%= f.submit %>
-
-<% end %>
+  </div>
+</div>
