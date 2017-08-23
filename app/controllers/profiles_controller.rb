@@ -6,7 +6,7 @@ class ProfilesController < ApplicationController
   end
 
   def create
-  	params[:profile][:pets].delete("")
+    params[:profile][:pets].delete("")
   	
     @profile = @user.create_profile(profile_params)
     
@@ -29,7 +29,7 @@ class ProfilesController < ApplicationController
     end
 
     def set_user
-      @user = user.find(params[:user_id])
+      @user = User.find(params[:user_id])
     end
 end
 

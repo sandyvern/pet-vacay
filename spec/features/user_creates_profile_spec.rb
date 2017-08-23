@@ -12,18 +12,19 @@ feature "user profiles" do
     expect(page).to have_content("Create a new Profile")
     fill_in "profile[bio]", with: Faker::Lorem.paragraph(2)
     fill_in "profile[city]", with: "Stamford"
-    fill_in "profile[state]", with: "Connecticut"
+    select "Connecticut"
+    # fill_in "profile[state]", with: "CT"
     fill_in "profile[zipcode]", with: "06902"
-    select "Dog"
-    select "Cat" 
+    select "dog"
+    select "cat" 
     click_button "Create Profile"
 		expect(page).to have_content("Profile was successfully created.")
 		
 		profile = Profile.last
-		expect(profile.pet).to eq ["Cat", "Dog"]
+		expect(profile.pets).to eq ["dog", "cat"]
     expect(profile.city).to eq "Stamford"
-    expect(profile.city).to eq "Connecticut"
-    expect(profile.city).to eq "06902"
+    expect(profile.state).to eq 'CT'
+    expect(profile.zipcode).to eq "06902"
   end
 
   scenario "user sees profile error message if no bio" do

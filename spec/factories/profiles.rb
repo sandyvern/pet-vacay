@@ -1,12 +1,12 @@
 FactoryGirl.define do
   factory :profile do
-    user nil
-    bio "MyText"
-    city "MyString"
-    state "MyString"
-    zipcode "MyString"
-    pet "MyString"
-    user_id 1
+    user
+    bio Faker::Lorem.paragraph
+    city Faker::Address.city
+    state Faker::Address.state
+    zipcode Faker::Address.zip_code
+    pets "MyString"
+    # user_id 1
   end
 end
 
@@ -14,3 +14,4 @@ end
 # Faker::Address.city #=> "Imogeneborough"
 # Faker::Address.state #=> "California"
 # Faker::Address.zip_code #=> "58517"
+# can be => zipcode Faker::Address.zip_code

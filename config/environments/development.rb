@@ -54,4 +54,6 @@ Rails.application.configure do
   
   # Per Devise installation instructions
   config.action_mailer.default_url_options = { host: 'https://ruby-thursday-bara-sandyvern.c9users.io/' }
+  
+  config.action_controller.include_all_helpers = true
 end

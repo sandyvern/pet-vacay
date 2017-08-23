@@ -91,4 +91,6 @@ Rails.application.configure do
   
   # Per Devise installation instructions
   config.action_mailer.default_url_options = { host: 'https://pet-vacay.herokuapp.com/' }
+  
+  config.action_controller.include_all_helpers = true
 end
